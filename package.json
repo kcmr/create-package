@@ -1,10 +1,10 @@
 {
   "name": "create-package",
   "version": "1.0.0",
-  "description": "",
+  "description": "Package generator",
   "main": "lib/index.js",
   "bin": {
-    "package": "./bin/index.js"
+    "package": "bin/index.js"
   },
   "scripts": {
     "test": "echo \"Not yet :(\" && exit 0",
@@ -13,8 +13,12 @@
     "format:eslint": "npm run lint:eslint -- --fix",
     "format": "npm run format:prettier && npm run format:eslint"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "blueprint",
+    "generator",
+    "npm package"
+  ],
+  "author": "Kus Cámara <kus.camara@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@kuscamara/cli-helper": "^1.0.5",
@@ -38,5 +42,16 @@
   },
   "engines": {
     "node": ">=10"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kcmr/create-package.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kcmr/create-package/issues"
+  },
+  "homepage": "https://github.com/kcmr/create-package#readme"
 }
