@@ -1,0 +1,42 @@
+{
+  "name": "create-package",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "bin": {
+    "package": "./bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Not yet :(\" && exit 0",
+    "lint:eslint": "eslint \"bin/**\" \"lib/**\"",
+    "format:prettier": "prettier --write \"**/*.{js,md}\"",
+    "format:eslint": "npm run lint:eslint -- --fix",
+    "format": "npm run format:prettier && npm run format:eslint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@kuscamara/cli-helper": "^1.0.5",
+    "copy-template-dir": "^1.4.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "lint-staged": "^10.0.3",
+    "prettier": "^1.19.1"
+  },
+  "lint-staged": {
+    "*.{js,md}": [
+      "npm run format",
+      "git add"
+    ]
+  },
+  "engines": {
+    "node": ">=10"
+  }
+}
