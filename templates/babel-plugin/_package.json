@@ -2,19 +2,49 @@
   "name": "{{pkgName}}",
   "version": "0.0.0-development",
   "description": "{{description}}",
-  "main": "lib/index.js",
-  "files": [
-    "lib"
-  ],
   "keywords": [
     "babel-plugin"
   ],
-  "author": "{{author}}",
   "license": "MIT",
+  "author": "{{author}}",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "test:prune": "jest --updateSnapshot"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "npm t"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -31,21 +61,8 @@
   "peerDependencies": {
     "@babel/core": ">=7"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm t",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
+  "engines": {
+    "node": ">=10.0.0"
   },
   "release": {
     "plugins": [
@@ -57,22 +74,5 @@
     ],
     "branch": "master",
     "tagFormat": "${version}"
-  },
-  "jest": {
-    "collectCoverage": true,
-    "coverageThreshold": {
-      "global": {
-        "branches": 100,
-        "functions": 100,
-        "lines": 100,
-        "statements": 100
-      }
-    }
-  },
-  "engines": {
-    "node": ">=10.0.0"
-  },
-  "directories": {
-    "lib": "lib"
   }
 }

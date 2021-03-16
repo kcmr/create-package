@@ -2,15 +2,25 @@
   "name": "{{pkgName}}",
   "version": "0.0.0-development",
   "description": "{{description}}",
+  "keywords": [],
+  "license": "MIT",
+  "author": "{{author}}",
   "main": "lib/index.js",
   "files": [
     "lib"
   ],
-  "keywords": [],
-  "author": "{{author}}",
-  "license": "MIT",
   "scripts": {
     "test": "echo \"Not yet :(\" && exit 0"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "dependencies": {},
   "devDependencies": {
@@ -22,13 +32,8 @@
     "cz-conventional-changelog": "^3.0.0",
     "semantic-release": "^17.0.0"
   },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
-  },
-  "commitlint": {
-    "extends": ["@commitlint/config-conventional"]
+  "publishConfig": {
+    "access": "public"
   },
   "release": {
     "plugins": [
@@ -40,8 +45,5 @@
     ],
     "branch": "master",
     "tagFormat": "${version}"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
